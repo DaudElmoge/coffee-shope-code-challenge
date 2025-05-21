@@ -14,8 +14,8 @@ class Customer:
     def orders(self):
         return [order for order in Order.all if order.customer == self]
     
-    def beverages(self):
-        return [order.beverage for order in self.orders()]
+    def coffee(self):
+        return [order.coffee for order in self.orders()]
 
     @property
     def name (self):

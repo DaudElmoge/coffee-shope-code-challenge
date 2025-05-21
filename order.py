@@ -1,9 +1,9 @@
 class Order:
     all = []
 
-    def __init__(self, customer, beverage, size, price):
+    def __init__(self, customer, coffee, size, price):
         self.customer = customer
-        self.beverage = beverage
+        self.beverage = coffee
         self.size = size
         self.price = price
         Order.all.append(self)
@@ -21,16 +21,16 @@ class Order:
         self._customer = value
 
     @property
-    def beverage(self):
-        return self._beverage
+    def coffee(self):
+        return self._coffee
 
-    @beverage.setter
-    def beverage (self, value):
+    @coffee.setter
+    def coffee (self, value):
         if not isinstance(value, str):
-            raise ValueError("Beverage name must be a string.")
+            raise ValueError("Coffee name must be a string.")
         if len(value) < 1 or len(value) > 15:
-            raise ValueError("Beverage name must be between 1 and 15 characters long.")
-        self._beverage = value   
+            raise ValueError("Coffee name must be between 1 and 15 characters long.")
+        self._coffee = value   
 
     @property
     def size(self):
