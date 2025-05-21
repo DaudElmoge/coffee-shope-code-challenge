@@ -20,6 +20,21 @@ class Customer:
     def create_order(self,coffee,size,price):
         return Order(self,coffee,size,price)
 
+    @classmethod
+    def most_aficionado(cls,coffee):
+        customer_spending = {}
+        for order in Order.all:
+            if order.coffee == coffee:
+                if order.customer not in customer_spending:
+                    customer_spending[order.customer] = 0
+                customer_spending[order.customer] += order.price
+        if not customer_spending:
+            return None
+        return max(customer_spending, key=customer_spending.get)
+    #checks who spent the most on a specific coffee
+    #returns the customer who spent the most on a specific coffee
+
+
     @property
     def name (self):
         return self._name
