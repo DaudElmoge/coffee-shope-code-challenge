@@ -16,6 +16,9 @@ class Customer:
     
     def coffee(self):
         return [order.coffee for order in self.orders()]
+    
+    def create_order(self,coffee,size,price):
+        return Order(self,coffee,size,price)
 
     @property
     def name (self):
