@@ -1,3 +1,5 @@
+from order import Order
+
 class Customer:
     def __init__(self,name):
         self.name=name
@@ -8,6 +10,12 @@ class Customer:
             raise Exception ("Name must be a string.")
         if len(name) < 1 or len (name) > 15:#checks if string is not empty and less than 15 characters
             raise ValueError("Name must be between 1 and 15 characters long.")
+
+    def orders(self):
+        return [order for order in Order.all if order.customer == self]
+    
+    def beverages(self):
+        return [order.beverage for order in self.orders()]
 
     @property
     def name (self):
